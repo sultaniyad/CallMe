@@ -26,4 +26,8 @@ public class Contacts extends RealmObject {
     }
 
     private String number;
-}
+
+
+
+    }
+

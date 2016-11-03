@@ -26,6 +26,7 @@ import android.widget.Toast;
 import com.iyad.sultan.callme.Model.Contacts;
 import com.iyad.sultan.callme.Model.RealmModel;
 
+import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashSet;
@@ -72,13 +73,11 @@ public class LoadContactsData extends Fragment {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 realmModel.insertUserOperator(i);
-                Toast.makeText(getActivity(), "onItemSelected " + i, Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-                Toast.makeText(getActivity(), "onNothingSelected", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -128,7 +127,6 @@ try {
         if (contactsList.size() > 0) {
 
             List<Contacts> con = removeDuplicate(contactsList);
-            Toast.makeText(getActivity(), "Total contacts is " + con.size(), Toast.LENGTH_SHORT).show();
             addToRealm(con);
         } else Toast.makeText(getActivity(), R.string.no_contacts_found, Toast.LENGTH_SHORT).show();
     }
