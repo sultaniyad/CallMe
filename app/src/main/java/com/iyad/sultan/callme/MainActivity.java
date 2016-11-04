@@ -348,7 +348,7 @@ android.permission.CALL_PHONE
         try {
             startActivity(sendCallme);
         } catch (Exception e) {
-            Toast.makeText(this, R.string.error, Toast.LENGTH_SHORT).show();
+            alertDialog();
         }
 
 
@@ -379,7 +379,7 @@ android.permission.CALL_PHONE
         try {
             startActivity(Callme);
         } catch (Exception e) {
-            Toast.makeText(MainActivity.this, R.string.error, Toast.LENGTH_SHORT).show();
+            alertDialog();
         }
     }
 

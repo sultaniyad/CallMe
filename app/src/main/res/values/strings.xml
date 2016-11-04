@@ -12,7 +12,7 @@
 
 
     <string name="plz_allow_contacts">App need access to Contacts, Please allow</string>
-    <string name="plz_allow_phone">App need access to Phone, Please allow</string>
+    <string name="plz_allow_phone">App need access to Phone, Restart App then click allow to access </string>
     <string name="error">if Error continue ,Please delete App and contacts Developer</string>
     <string name="success">Contacts is loaded successfully</string>
     <string name="no_contacts_found">No contacts Found, Please Create one!</string>
@@ -34,7 +34,13 @@
         <item>STC</item>
         <item>Mobily</item>
         <item>Zain</item>
-
-
     </string-array>
+
+    <!-- Instructions -->
+    <string name="instruction_1" >Swap to Left to send Call me Massage</string>
+    <string name="instruction_2" >Swap to Right to Khaliha Alia Service</string>
+    <string name="instruction_3" >Long Press to call person</string>
+    <string name="instruction">Instructions</string>
+
+
 </resources>

@@ -37,6 +37,7 @@ public class IntroActivity extends AppIntro {
 
 
         addSlide(new LoadContactsData());
+        addSlide(new Instruction_Fragment());
 
         showSkipButton(false);
       //  setProgressButtonEnabled(false);

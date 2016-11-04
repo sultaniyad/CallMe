@@ -3,5 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="seeting_text">32dp</dimen>
+    <dimen name="seeting_text">32sp</dimen>
+    <dimen name="text_instruction">20sp</dimen>
 </resources>
