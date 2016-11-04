@@ -108,10 +108,11 @@ public class LoadContactsData extends Fragment {
     void loadContacts() {
 
         List<Contacts> contactsList = new ArrayList<>();
+        Cursor cursor = null;
 try {
 
 
-    Cursor cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+     cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
     while (cursor.moveToNext()) {
         String Name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
         String Number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
@@ -123,6 +124,10 @@ try {
 } catch (Exception e){
     Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
 }
+        finally {
+    if (cursor != null)
+        cursor.close();
+        }
 
         if (contactsList.size() > 0) {
 

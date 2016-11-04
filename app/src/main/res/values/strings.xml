@@ -39,7 +39,7 @@
     <!-- Instructions -->
     <string name="instruction_1" >Swap to Left to send Call me Massage</string>
     <string name="instruction_2" >Swap to Right to Khaliha Alia Service</string>
-    <string name="instruction_3" >Long Press to call person</string>
+    <string name="instruction_3" > Press phone icon to call person</string>
     <string name="instruction">Instructions</string>
 
 

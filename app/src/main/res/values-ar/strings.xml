@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">اتصل</string>
+    <string name="action_search">ابحث</string>
+    <string name="action_reset">اعادة الظبط</string>
+    <string name="title_activity_load_contacts">اعدادات</string>
+
+
+    <string name="app_intro">هلا</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">هلا</string>
+
+
+    <string name="plz_allow_contacts">رجا سماح لـتطبيق با الوصول للأسماء</string>
+    <string name="plz_allow_phone">رجا سماح لـتطبيق با الوصول الهاتف. أعد تشغل التطبيق ثم اسماح بوصل لهاتف</string>
+    <string name="error">اذا ستمر هذا الرساله رجا حذف التطبيق و التواصل  مع المطور</string>
+    <string name="success">تم تحميل الأسماء بنجاح</string>
+    <string name="no_contacts_found">لا توجد اسماء. رجا اذهب الى تطبيق الهاتف وانشئ</string>
+    <string name="no_Operate_selected">رجاء اعاده ضبط التطبيق وختيار مزود الخدمة </string>
+    <string name="load_data_faild">رجاء اعاده ضبط التطبيق و ضغط ع تحميل السماء</string>
+    <string name="permission">صلاحيات</string>
+    <string name="ok">تم</string>
+    <string name="hi">هلا</string>
+    <string name="few_step">دقايق ونتهي :)</string>
+    <string name="contacts">الأسماء</string>
+    <string name="phone">الهاتف</string>
+    <string name="select_operator">أختر مزود الخدمة</string>
+    <string name="press_button_load_contacts">اضعط ع زر تحميل الأسماء</string>
+    <string name="load_contacts">تحميل الأسماء</string>
+    <string name="settings">اعدادات</string>
+
+
+    <string-array name="operator_array">
+        <item>الأتصالات</item>
+        <item>موبايلي</item>
+        <item>زين</item>
+    </string-array>
+
+    <!-- Instructions -->
+    <string name="instruction_1" >اسحب جهة اليمين الرسال اتصل بي</string>
+    <string name="instruction_2" >اسحب جهة اليسار خليها علي</string>
+    <string name="instruction_3" >ضغط ايقونة الهاتف الأتصال</string>
+    <string name="instruction">تعليمات</string>
+
+
+</resources>
