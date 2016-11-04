@@ -158,14 +158,14 @@ public class MainActivity extends AppCompatActivity {
                             float width = height / 3;
 
                             if (dX > 0) {
-                                p.setColor(Color.parseColor("#388E3C"));
+                                p.setColor(Color.parseColor("#00C853"));
                                 RectF background = new RectF((float) itemView.getLeft(), (float) itemView.getTop() , dX, (float) itemView.getBottom());
                                 c.drawRect(background, p);
                                 icon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_perm_phone_msg_white_24dp);
                                 RectF icon_dest = new RectF((float) itemView.getLeft() + width, (float) itemView.getTop() + width, (float) itemView.getLeft() + 2 * width, (float) itemView.getBottom() - width);
                                 c.drawBitmap(icon, null, icon_dest, p);
                             } else {
-                                p.setColor(Color.parseColor("#D32F2F"));
+                                p.setColor(Color.parseColor("#558B2F"));
                                 RectF background = new RectF((float) itemView.getRight() + dX, (float) itemView.getTop(), (float) itemView.getRight(), (float) itemView.getBottom());
                                 c.drawRect(background, p);
                                 icon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_mail_outline_white_24dp);
@@ -189,15 +189,15 @@ public class MainActivity extends AppCompatActivity {
         switch (realmModel.getUserOperator()) {
             case STC:
                 operator.setIcon(R.drawable.stc);
-                operator.setTitle("STC");
+                operator.setTitle(R.string.stc);
                 break;
             case MOBILY:
                 operator.setIcon(R.drawable.mobily);
-                operator.setTitle("Mobily");
+                operator.setTitle(R.string.mobily);
                 break;
             case ZAIN:
                 operator.setIcon(R.drawable.zain);
-                operator.setTitle("Zain");
+                operator.setTitle(R.string.zain);
                 break;
         }
 

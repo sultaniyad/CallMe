@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">اتصل</string>
     <string name="action_search">ابحث</string>
-    <string name="action_reset">اعادة الظبط</string>
+    <string name="action_reset">اعادة الضبط</string>
     <string name="title_activity_load_contacts">اعدادات</string>
 
 
@@ -37,10 +37,12 @@
     </string-array>
 
     <!-- Instructions -->
-    <string name="instruction_1" >اسحب جهة اليمين الرسال اتصل بي</string>
-    <string name="instruction_2" >اسحب جهة اليسار خليها علي</string>
+    <string name="instruction_1" >اسحب لـجهة اليمين الأرسال رساله اتصل بي</string>
+    <string name="instruction_2" >اسحب لجهة اليسار خليها علي</string>
     <string name="instruction_3" >ضغط ايقونة الهاتف الأتصال</string>
     <string name="instruction">تعليمات</string>
-
+    <string name="stc">اتصالات</string>
+    <string name="mobily">موبايلي</string>
+    <string name="zain">زين</string>
 
 </resources>

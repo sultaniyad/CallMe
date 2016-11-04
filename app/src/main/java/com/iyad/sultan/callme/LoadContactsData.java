@@ -6,14 +6,10 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.ConditionVariable;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +22,9 @@ import android.widget.Toast;
 import com.iyad.sultan.callme.Model.Contacts;
 import com.iyad.sultan.callme.Model.RealmModel;
 
-import java.lang.reflect.GenericArrayType;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 
 /**
@@ -109,24 +101,23 @@ public class LoadContactsData extends Fragment {
 
         List<Contacts> contactsList = new ArrayList<>();
         Cursor cursor = null;
-try {
+        try {
 
 
-     cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
-    while (cursor.moveToNext()) {
-        String Name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-        String Number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-        Contacts contact = new Contacts();
-        contact.setName(Name);
-        contact.setNumber(Number.replace(" ", ""));
-        contactsList.add(contact);
-    }
-} catch (Exception e){
-    Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
-}
-        finally {
-    if (cursor != null)
-        cursor.close();
+            cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+            while (cursor.moveToNext()) {
+                String Name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                String Number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                Contacts contact = new Contacts();
+                contact.setName(Name);
+                contact.setNumber(Number.replace(" ", ""));
+                contactsList.add(contact);
+            }
+        } catch (Exception e) {
+            Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
+        } finally {
+            if (cursor != null)
+                cursor.close();
         }
 
         if (contactsList.size() > 0) {
