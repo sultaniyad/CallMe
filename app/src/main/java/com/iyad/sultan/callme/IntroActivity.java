@@ -12,23 +12,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.github.paolorotolo.appintro.AppIntro;
+import com.github.paolorotolo.appintro.AppIntro2;
 import com.github.paolorotolo.appintro.AppIntroFragment;
 
 /**
  * Created by salkhmis on 10/26/2016.
  */
 
-public class IntroActivity extends AppIntro {
+public class IntroActivity extends AppIntro2 {
     private static final int RESET_DATA = 1;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //   setBarColor(Color.parseColor("#3F51B5"));
-        setSeparatorColor(Color.parseColor("#2106F3"));
+
 
         //Hi slide
-        addSlide(AppIntroFragment.newInstance(getResources().getString(R.string.hi), getResources().getString(R.string.few_step), R.drawable.ic_arrow_back_white, ActivityCompat.getColor(IntroActivity.this,R.color.colorPrimary)));
+        addSlide(AppIntroFragment.newInstance(getResources().getString(R.string.hi), getResources().getString(R.string.few_step), R.drawable.ic_sentiment_satisfied_white_48dp, ActivityCompat.getColor(IntroActivity.this,R.color.colorPrimary)));
 //ask Contacts Permission slide
         addSlide(AppIntroFragment.newInstance(getResources().getString(R.string.contacts), getResources().getString(R.string.plz_allow_contacts), R.drawable.ic_contacts_white_48dp, ActivityCompat.getColor(IntroActivity.this,R.color.colorPrimary)));
         addSlide(AppIntroFragment.newInstance(getResources().getString(R.string.phone), getResources().getString(R.string.plz_allow_contacts), R.drawable.ic_phone_white_48dp, ActivityCompat.getColor(IntroActivity.this,R.color.colorPrimary)));
@@ -40,8 +40,8 @@ public class IntroActivity extends AppIntro {
         addSlide(new Instruction_Fragment());
 
         showSkipButton(false);
-      //  setProgressButtonEnabled(false);
-        setFadeAnimation();
+      // setProgressButtonEnabled(false);
+      //  setFadeAnimation();
 
         /*
 Available animations:
