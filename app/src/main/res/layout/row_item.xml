@@ -69,6 +69,7 @@ android:background="@drawable/circle_shape_img"
             android:layout_marginRight="16dp"
             android:layout_marginTop="16dp"
             android:clickable="true"
+            android:src="@drawable/ic_local_phone_white_24dp"
            />
     </RelativeLayout>
 

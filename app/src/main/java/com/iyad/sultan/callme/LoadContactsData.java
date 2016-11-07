@@ -123,6 +123,7 @@ public class LoadContactsData extends Fragment {
         if (contactsList.size() > 0) {
 
             List<Contacts> con = removeDuplicate(contactsList);
+            Toast.makeText(getActivity(), "Total " + con.size(), Toast.LENGTH_SHORT).show();
             addToRealm(con);
         } else Toast.makeText(getActivity(), R.string.no_contacts_found, Toast.LENGTH_SHORT).show();
     }
