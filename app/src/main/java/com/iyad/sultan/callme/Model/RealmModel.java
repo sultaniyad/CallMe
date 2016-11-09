@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import io.realm.Case;
 import io.realm.Realm;
 import io.realm.RealmAsyncTask;
 import io.realm.RealmResults;
@@ -23,6 +24,7 @@ public class RealmModel {
 
     public RealmModel() {
         realm = Realm.getDefaultInstance();
+
     }
 
     public Boolean addContacts(final List<Contacts> contactsList) {
@@ -52,7 +54,7 @@ public class RealmModel {
     }
 
     public RealmResults<Contacts> getQueryConcats(String query) {
-        final RealmResults<Contacts> realmResults = realm.where(Contacts.class).contains("name", query).findAll();
+        final RealmResults<Contacts> realmResults = realm.where(Contacts.class).contains("name", query, Case.INSENSITIVE).findAll();
         return realmResults;
     }
 

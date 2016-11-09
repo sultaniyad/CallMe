@@ -34,11 +34,8 @@ import android.widget.Toast;
 import com.iyad.sultan.callme.Controller.Adapter;
 import com.iyad.sultan.callme.Model.RealmModel;
 
-import java.net.URI;
-import java.net.URL;
 
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Adapter.ItemClickCallback{
     private static final int STC = 0;
     private static final int MOBILY = 1;
     private static final int ZAIN = 2;
@@ -77,6 +74,8 @@ public class MainActivity extends AppCompatActivity {
 
         // specify an adapter
         mAdapter = new Adapter(realmModel.getContacts());
+        //set Call back (Interfaces)
+        mAdapter.setItemClickedCallback(this);
         mRecyclerView.setAdapter(mAdapter);
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(createHelperCallback());
@@ -98,7 +97,6 @@ public class MainActivity extends AppCompatActivity {
 
                 //  Create a new boolean and preference and set it to true
                 boolean isFirstStart = getPrefs.getBoolean("firstStart", true);
-                int userSelectCompany = getPrefs.getInt("userSelectCompany", 0);
 
                 //  If the activity has never started before...
                 if (isFirstStart) {
@@ -159,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
                             if (dX > 0) {
                                 p.setColor(Color.parseColor("#00C853"));
-                                RectF background = new RectF((float) itemView.getLeft(), (float) itemView.getTop() , dX, (float) itemView.getBottom());
+                                RectF background = new RectF((float) itemView.getLeft(), (float) itemView.getTop(), dX, (float) itemView.getBottom());
                                 c.drawRect(background, p);
                                 icon = BitmapFactory.decodeResource(getResources(), R.drawable.ic_perm_phone_msg_white_24dp);
                                 RectF icon_dest = new RectF((float) itemView.getLeft() + width, (float) itemView.getTop() + width, (float) itemView.getLeft() + 2 * width, (float) itemView.getBottom() - width);
@@ -221,14 +219,12 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
         //SearchView
-        SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(searchItem);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
 
-                mAdapter.setAdapterData(realmModel.getQueryConcats(query));
-                mAdapter.notifyDataSetChanged();
-
+                searchView.clearFocus();
 
                 return true;
             }
@@ -250,12 +246,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.action_reser:
                 startActivity(new Intent(getApplicationContext(), IntroActivity.class));
                 return true;
+            case R.id.licence:
+                showLicence();
+                return true;
         }
 
 
         return super.onOptionsItemSelected(item);
 
     }
+
+
 //End Menu
 
 
@@ -383,8 +384,26 @@ android.permission.CALL_PHONE
         }
     }
 
+    private void call(final String number){
+        try {
+            startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:"+ number)));
+        } catch (Exception e) {
+            alertDialog();
+        }
+    }
+
+    //Licence
+    private void showLicence() {
+        startActivity(new Intent(MainActivity.this, LicenceActivity.class));
+    }
 
 
+    //handling Callback
+    @Override
+    public void onImgPhoneClicked(String phoneNumber) {
+        call(phoneNumber);
+
+    }
 }
 
 

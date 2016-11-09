@@ -4,12 +4,14 @@ package com.iyad.sultan.callme;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,8 +86,7 @@ public class LoadContactsData extends Fragment {
                 }
 
                 //API 22 and Down
-                else loadContacts();
-
+                else new TaskLoadContacts().execute();
                 loadData.setEnabled(false);
                 //   loadData.setBackgroundColor(ContextCompat.getColor(getActivity(),R.color.colorAccent));
                 //loadData.setText(R.string.load_data_faild);
@@ -97,53 +98,9 @@ public class LoadContactsData extends Fragment {
     }
 
 
-    void loadContacts() {
-
-        List<Contacts> contactsList = new ArrayList<>();
-        Cursor cursor = null;
-        try {
 
 
-            cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
-            while (cursor.moveToNext()) {
-                String Name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
-                String Number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
-                Contacts contact = new Contacts();
-                contact.setName(Name);
-                contact.setNumber(Number.replace(" ", ""));
-                contactsList.add(contact);
-            }
-        } catch (Exception e) {
-            Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
-        } finally {
-            if (cursor != null)
-                cursor.close();
-        }
 
-        if (contactsList.size() > 0) {
-
-            List<Contacts> con = removeDuplicate(contactsList);
-            Toast.makeText(getActivity(), "Total " + con.size(), Toast.LENGTH_SHORT).show();
-            addToRealm(con);
-        } else Toast.makeText(getActivity(), R.string.no_contacts_found, Toast.LENGTH_SHORT).show();
-    }
-
-
-    void addToRealm(List<Contacts> contactsList) {
-        boolean isFailed = false;
-
-        //Add new Data To Realm
-        if (contactsList.size() > 0)
-            isFailed = realmModel.addContacts(contactsList);
-
-//sow result
-        if (isFailed)
-            Toast.makeText(getActivity(), R.string.error, Toast.LENGTH_SHORT).show();
-        else
-            Toast.makeText(getActivity(), R.string.success, Toast.LENGTH_SHORT).show();
-
-
-    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -154,7 +111,7 @@ public class LoadContactsData extends Fragment {
         if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.READ_CONTACTS}, 456);
             // else do the work
-        } else loadContacts();
+        } else new TaskLoadContacts().execute();
     }
 
     @Override
@@ -164,7 +121,7 @@ public class LoadContactsData extends Fragment {
                 if (grantResults[0] != PackageManager.PERMISSION_GRANTED)
                     Toast.makeText(getActivity(), R.string.plz_allow_contacts, Toast.LENGTH_SHORT).show();
                 else {
-                    loadContacts();
+                   new TaskLoadContacts().execute();
                 }
                 break;
             default:
@@ -201,5 +158,76 @@ public class LoadContactsData extends Fragment {
         return newList;
     }
 
+
+    class TaskLoadContacts extends AsyncTask<Void, Void, String> {
+        Cursor cursor;
+        List<Contacts> contactsList = new ArrayList<>();
+
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+//get Contacts
+            try {
+
+                cursor = getActivity().getContentResolver().query(ContactsContract.CommonDataKinds.Phone.CONTENT_URI, null, null, null, null);
+                while (cursor.moveToNext()) {
+                    String Name = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+                    String Number = cursor.getString(cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+                    Contacts contact = new Contacts();
+                    contact.setName(Name);
+                    contact.setNumber(Number.replace(" ", ""));
+                    contactsList.add(contact);
+                }
+            } catch (Exception e) {
+
+            } finally {
+                if (cursor != null)
+                    cursor.close();
+            }
+            //delete Duplicated Numbers
+
+            HashSet<String> mobileNoSet = new HashSet<String>();
+            List<Contacts> newList = new ArrayList<>();
+            for (Contacts contacts : contactsList) {
+
+                if (!mobileNoSet.contains(contacts.getNumber())) {
+
+                    newList.add(contacts);
+                    mobileNoSet.add(contacts.getNumber());
+                }
+
+            }
+            RealmModel db =new RealmModel();
+            try{
+
+                if(newList.size()>0)
+                db.addContacts(newList);
+            }
+
+            finally {
+                db.onDestroyed();
+
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            if(contactsList.size()>0)
+            Toast.makeText(getActivity(), R.string.success , Toast.LENGTH_SHORT).show();
+            else Toast.makeText(getActivity(), R.string.no_contacts_found, Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }
 
 }

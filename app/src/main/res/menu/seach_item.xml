@@ -11,14 +11,20 @@
         app:showAsAction="ifRoom|collapseActionView" />
 
     <item
+        android:id="@+id/opertor_icon"
+        android:title=""
+        android:icon="@drawable/ic_mail_outline_white_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_reser"
         android:icon="@drawable/ic_cached_white_24dp"
         android:title="@string/action_reset"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/opertor_icon"
-        android:icon="@drawable/ic_mail_outline_white_24dp"
-        app:showAsAction="ifRoom" />
+        android:id="@+id/licence"
+        android:title="@string/licence"
+        app:showAsAction="never" />
 
 
 
