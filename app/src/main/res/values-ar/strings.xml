@@ -2,22 +2,18 @@
     <string name="app_name">أتصل بي</string>
     <string name="action_search">ابحث</string>
     <string name="action_reset">إعادة تعيين الإعدادات</string>
-    <string name="title_activity_load_contacts">اعدادات</string>
 
 
     <string name="app_intro">هلا</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">هلا</string>
 
 
     <string name="plz_allow_contacts">رجا سماح لـتطبيق با الوصول للأسماء</string>
-    <string name="plz_allow_phone">رجا سماح لـتطبيق با الوصول الهاتف. أعد تشغل التطبيق ثم اسماح بوصل لهاتف</string>
-    <string name="error">اذا ستمر هذا الرساله رجا حذف التطبيق و التواصل  مع المطور</string>
+    <string name="plz_allow_phone">رجا سماح لـتطبيق با الوصول الهاتف. أعد تشغيل التطبيق ثم اسماح بوصل لهاتف</string>
     <string name="success">تم تحميل الأسماء بنجاح</string>
     <string name="no_contacts_found">لا توجد اسماء. رجا اذهب الى تطبيق الهاتف وانشئ</string>
     <string name="no_Operate_selected">رجاء إعادة تعيين الإعدادات و أختيار مزود الخدمة </string>
-    <string name="load_data_faild">رجاء إعادة تعيين الإعدادات و أختيار تحميل الأسماء</string>
     <string name="permission">صلاحيات</string>
     <string name="ok">تم</string>
     <string name="hi">هلا</string>
@@ -45,6 +41,7 @@
     <string name="mobily">موبايلي</string>
     <string name="zain">زين</string>
     <string name="licence">الحقوق</string>
+    <string name="image_des">صوره</string>
 
 
 </resources>

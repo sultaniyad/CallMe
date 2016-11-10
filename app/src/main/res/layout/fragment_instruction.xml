@@ -85,8 +85,9 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_sentiment_very_satisfied_white_48dp"
+        app:srcCompat="@drawable/ic_sentiment_very_satisfied_white_48px"
         android:id="@+id/imageView2"
+        android:contentDescription="@string/image_des"
         tools:layout_constraintRight_creator="1"
         tools:layout_constraintBottom_creator="1"
         app:layout_constraintBottom_toBottomOf="parent"

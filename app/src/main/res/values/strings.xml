@@ -2,22 +2,18 @@
     <string name="app_name">CallMe</string>
     <string name="action_search">Search</string>
     <string name="action_reset">Reset</string>
-    <string name="title_activity_load_contacts">Settings</string>
 
 
     <string name="app_intro">Intro</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <string name="plz_allow_contacts">App need access to Contacts, Please allow</string>
     <string name="plz_allow_phone">App need access to Phone, Restart App then click allow to access </string>
-    <string name="error">if Error continue ,Please delete App and contacts Developer</string>
     <string name="success">Contacts is loaded successfully</string>
     <string name="no_contacts_found">No contacts Found, Please Create one!</string>
     <string name="no_Operate_selected">no Operate selected!, Please reset app and select your Operate</string>
-    <string name="load_data_faild">failed press DONE then RESET Button to do it again</string>
     <string name="permission">Permissions</string>
     <string name="ok">OK</string>
     <string name="hi">Hi</string>
@@ -45,6 +41,7 @@
     <string name="mobily">Mobily</string>
     <string name="zain">Zain</string>
     <string name="licence">Licence</string>
+    <string name="image_des">Image</string>
 
 
 </resources>

@@ -35,11 +35,15 @@
        android:layout_height="match_parent"
        app:layout_behavior="@string/appbar_scrolling_view_behavior"
        android:id="@+id/rec" />
-
-
-
-
-
    </android.support.design.widget.CoordinatorLayout>
+
+   <com.google.android.gms.ads.NativeExpressAdView
+       android:id="@+id/adView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       ads:adUnitId="ca-app-pub-2100187188382709/9019955876"
+       ads:adSize="FULL_WIDTHx132">
+   </com.google.android.gms.ads.NativeExpressAdView>
+
 
 </LinearLayout>

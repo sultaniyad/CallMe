@@ -1,13 +1,9 @@
 package com.iyad.sultan.callme.Model;
 
-import android.util.Log;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Case;
 import io.realm.Realm;
-import io.realm.RealmAsyncTask;
 import io.realm.RealmResults;
 
 /**
@@ -64,27 +60,6 @@ public class RealmModel {
     }
 
 
-    //to Insert Dumb Data
-    public void InsertDumbData() {
-        List<Contacts> contactsList = new ArrayList<>();
-        for (int x = 0; x < 10; x++) {
-            Contacts c = new Contacts();
-            c.setName("sultan: " + x);
-            c.setNumber("050: " + x);
-            contactsList.add(c);
-        }
-        addContacts(contactsList);
-    }
-
-    //To Show Dumb Data
-    public void showDumbData() {
-        final List<Contacts> results = getContacts();
-        for (Contacts c : results) {
-            Log.i("result123", c.getName() + "  " + c.getNumber());
-        }
-    }
-
-
     //Deal with user settings
 
 
@@ -92,12 +67,12 @@ public class RealmModel {
 
         UserSetting userSetting = realm.where(UserSetting.class).findFirst();
         if (userSetting != null)
-           return userSetting.getOperate();
+            return userSetting.getOperate();
 
-            return 0;
+        return 0;
     }
 
-    public boolean insertUserOperator(final int userSelect) {
+    public void insertUserOperator(final int userSelect) {
         realm.executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
@@ -107,7 +82,7 @@ public class RealmModel {
                 realm.insert(setting);
             }
         });
-        return true;
+
     }
 
 

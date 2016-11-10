@@ -37,21 +37,21 @@ import com.iyad.sultan.callme.Controller.Adapter;
 import com.iyad.sultan.callme.Model.RealmModel;
 
 
-public class MainActivity extends AppCompatActivity implements Adapter.ItemClickCallback{
+public class MainActivity extends AppCompatActivity implements Adapter.ItemClickCallback {
     private static final int STC = 0;
     private static final int MOBILY = 1;
     private static final int ZAIN = 2;
     private RealmModel realmModel;
     private Adapter mAdapter;
     //Graphical
-    private Paint p = new Paint();
+    private final Paint p = new Paint();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ades();
+       // showAds();
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.ItemClick
     } //onCreate
 
     //Show the Intro Once
-    void isFirstTime() {
+   private void isFirstTime() {
         Thread t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -310,7 +310,7 @@ android.permission.CALL_PHONE
 
 
     //Alert
-    void alertDialog() {
+    private void alertDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
         builder.setTitle(R.string.permission).setMessage(R.string.plz_allow_phone).setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
             @Override
@@ -387,9 +387,9 @@ android.permission.CALL_PHONE
         }
     }
 
-    private void call(final String number){
+    private void call(final String number) {
         try {
-            startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:"+ number)));
+            startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:" + number)));
         } catch (Exception e) {
             alertDialog();
         }
@@ -409,13 +409,12 @@ android.permission.CALL_PHONE
     }
 
 
-    void ades(){
-       // NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+   private void showAds() {
+        NativeExpressAdView adView = (NativeExpressAdView) findViewById(R.id.adView);
 
-      //  AdRequest request = new AdRequest.Builder()
-         //      .addTestDevice("45533DAE9E91295A0D8C43F1923A8E1F")
-           //    .build();
-       // adView.loadAd(request);
+        AdRequest request = new AdRequest.Builder()
+                .build();
+        adView.loadAd(request);
     }
 }
 
