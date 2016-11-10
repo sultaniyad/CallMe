@@ -31,6 +31,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.NativeExpressAdView;
 import com.iyad.sultan.callme.Controller.Adapter;
 import com.iyad.sultan.callme.Model.RealmModel;
 
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.ItemClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        ades();
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -403,6 +406,16 @@ android.permission.CALL_PHONE
     public void onImgPhoneClicked(String phoneNumber) {
         call(phoneNumber);
 
+    }
+
+
+    void ades(){
+       // NativeExpressAdView adView = (NativeExpressAdView)findViewById(R.id.adView);
+
+      //  AdRequest request = new AdRequest.Builder()
+         //      .addTestDevice("45533DAE9E91295A0D8C43F1923A8E1F")
+           //    .build();
+       // adView.loadAd(request);
     }
 }
 
