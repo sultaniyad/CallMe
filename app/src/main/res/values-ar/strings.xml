@@ -9,10 +9,10 @@
     <!-- TODO: Remove or change this placeholder text -->
 
 
-    <string name="plz_allow_contacts">رجا سماح لـتطبيق با الوصول للأسماء</string>
-    <string name="plz_allow_phone">رجا سماح لـتطبيق با الوصول الهاتف. أعد تشغيل التطبيق ثم اسماح بوصل لهاتف</string>
+    <string name="plz_allow_contacts">رجاء سماح لـتطبيق با الوصول للأسماء</string>
+    <string name="plz_allow_phone">رجاء سماح لـتطبيق با الوصول الهاتف. أعد تشغيل التطبيق ثم اسماح بوصل لهاتف</string>
     <string name="success">تم تحميل الأسماء بنجاح</string>
-    <string name="no_contacts_found">لا توجد اسماء. رجا اذهب الى تطبيق الهاتف وانشئ</string>
+    <string name="no_contacts_found">لا توجد اسماء. رجاء اذهب الى تطبيق الهاتف وانشئ</string>
     <string name="no_Operate_selected">رجاء إعادة تعيين الإعدادات و أختيار مزود الخدمة </string>
     <string name="permission">صلاحيات</string>
     <string name="ok">تم</string>
@@ -27,7 +27,7 @@
 
 
     <string-array name="operator_array">
-        <item>الأتصالات</item>
+        <item>الاتصالات السعودية</item>
         <item>موبايلي</item>
         <item>زين</item>
     </string-array>

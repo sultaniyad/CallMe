@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.ItemClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       // showAds();
+
         //Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity implements Adapter.ItemClick
 //Show the Intro Once
         isFirstTime();
 
+        // showAds();
 
     } //onCreate
 

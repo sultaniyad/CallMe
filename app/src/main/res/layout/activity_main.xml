@@ -41,7 +41,7 @@
        android:id="@+id/adView"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
-       ads:adUnitId="ca-app-pub-2100187188382709/9019955876"
+       ads:adUnitId=""
        ads:adSize="FULL_WIDTHx132">
    </com.google.android.gms.ads.NativeExpressAdView>
 

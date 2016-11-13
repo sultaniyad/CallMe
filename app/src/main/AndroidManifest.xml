@@ -25,7 +25,9 @@
             android:name=".IntroActivity" android:screenOrientation="portrait"
             android:label="@string/app_intro"
             />
-        <activity android:name=".LicenceActivity" android:noHistory="true"></activity>
+        <activity
+            android:name=".LicenceActivity"
+            android:noHistory="true" />
     </application>
 
 </manifest>
